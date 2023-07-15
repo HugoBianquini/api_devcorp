@@ -29,6 +29,11 @@ public class EditionController {
         return repository.findAll().stream().map(EditionDTO::new).collect(Collectors.toList());
     }
 
+    @PutMapping
+    public void Atualizar(@RequestBody EditionDTO editionDTO){
+        repository.save(new Edition(editionDTO));
+    }
+
     @DeleteMapping("/{id}")
     public void DeletarEvento(@PathVariable Long id){
         repository.deleteById(id);
