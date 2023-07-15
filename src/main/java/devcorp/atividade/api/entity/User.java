@@ -25,6 +25,9 @@ public class User {
     private String afiliacao;
 
     public User(UserDTO userDTO) {
+        if (userDTO.getId() != 0) {
+            this.id = userDTO.getId();
+        }
         this.login = userDTO.getLogin();
         this.email = userDTO.getEmail();
         this.nome = userDTO.getNome();

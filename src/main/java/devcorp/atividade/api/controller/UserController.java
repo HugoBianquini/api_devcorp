@@ -25,4 +25,16 @@ public class UserController {
     public List<UserDTO> Listar(){
         return repository.findAll().stream().map(UserDTO::new).collect(Collectors.toList());
     }
+
+    @DeleteMapping
+    public void Deletar(@RequestParam Long id){
+        repository.deleteById(id);
+    }
+
+    @PutMapping
+    public void Atualizar(@RequestBody UserDTO userDTO){
+        repository.save(new User(userDTO));
+    }
+
+
 }
